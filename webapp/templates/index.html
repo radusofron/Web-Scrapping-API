@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}" />
+    <title> WSA Scraper </title>
+</head>
+
+<body>
+    <h1>Web Scraper</h1>
+    <form action="/" method="post">
+        <input name="url" type="text" placeholder="Insert URL" autocomplete="off" required>
+        <button type="submit">Get data</button>
+    </form>
+    <h2>Results</h2>
+    <div>
+        <code>
+            {% if data %}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages[0] == "Invalid" %}
+                        <p class="red">{{data}}</p>
+                    {% else %}
+                        <p>{{data}}</p>
+                    {% endif %}
+                {% endwith %}
+            {% else %}
+                <p> No data </p>
+            {% endif %}
+        </code>
+    </div>
+</body>
+
+</html>
