@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}" />
     <title> WSA Scraper </title>
 </head>
@@ -14,7 +12,8 @@
 <body>
     <h1>Web Scraper</h1>
     <form action="/" method="post">
-        <input name="url" type="text" placeholder="Insert URL" autocomplete="off" required>
+        <input name="url" type="text" placeholder="Insert URL" autocomplete="off" value="https://wsa-test.vercel.app"
+            required>
         <button type="submit">Get data</button>
     </form>
     <h2>Results</h2>
