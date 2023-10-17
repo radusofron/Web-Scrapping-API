@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, flash
-from scrapper import get_data
+from scrapper import get_desired_content
 
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
@@ -32,7 +32,7 @@ def scrape():
             data = "Invalid URL"
         else:
             # Scrape website
-            data = get_data(url)
+            data = get_desired_content(url)
 
         return render_template("index.html", data=data)
     # GET method
