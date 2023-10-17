@@ -5,24 +5,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/output.css') }}" />
+    <script src="{{ url_for('static', filename='scripts/index.js') }}" defer></script>
     <title> WSA Scraper </title>
 </head>
 
-<body>
-    <h1>Web Scraper</h1>
-    <form action="/" method="post">
+<body class="flex flex-col items-center px-8 py-8">
+    <h1 class="text-4xl">Web Scraper</h1>
+    <form action="/" method="post" class="w-full flex flex-col items-center">
         <input name="url" type="text" placeholder="Insert URL" autocomplete="off" value="https://wsa-test.vercel.app"
-            required>
-        <button type="submit">Get data</button>
+            class="w-1/2 my-8 py-2 px-2 rounded-full border-2 border-solid border-neutral-900" required>
+        <button type="submit" id="button"
+            class="py-2 px-4 rounded-full border-2 border-solid border-violet-700 bg-violet-700 text-white font-medium hover:bg-white hover:text-violet-700 transition-all disabled:bg-neutral-500 disabled:border-neutral-500 disabled:hover:text-white">
+            Get data
+        </button>
     </form>
-    <h2>Results</h2>
-    <div>
+    <h2 class="text-2xl mt-8 mb-4 font-bold">Results</h2>
+    <div class="w-1/2 py-2 px-2 border-2 border-solid border-black bg-neutral-200">
         <code>
             {% if data %}
                 {% with messages = get_flashed_messages() %}
                     {% if messages[0] == "Invalid" %}
-                        <p class="red">{{data}}</p>
+                        <p class="text-red-700">{{data}}</p>
                     {% else %}
                         <p>{{data}}</p>
                     {% endif %}

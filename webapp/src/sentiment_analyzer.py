@@ -20,7 +20,9 @@ def get_positive_words():
     "laugh",
     "delight",
     "victory",
-    "paradise"
+    "paradise",
+    "beautiful",
+    "beauty"
     ]
     return words
 
@@ -48,7 +50,8 @@ def get_negative_words():
     "disappointment",
     "defeat",
     "suffer",
-    "nightmare"
+    "nightmare",
+    "ugly"
     ]  
     return words
 
