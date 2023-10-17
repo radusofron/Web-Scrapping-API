@@ -64,13 +64,9 @@ def analyze(text: str):
     polarity = 0
     for word in words:
         if word in positive_words:
-            print(word)
             polarity += 1
         elif word in negative_words:
-            print(word)
             polarity -= 1
-
-    print(polarity)
 
     if polarity >= 1:
         return "positive"
