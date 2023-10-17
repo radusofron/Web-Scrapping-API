@@ -11,8 +11,9 @@ def get_data(url: str) -> BeautifulSoup:
     # Set the type of browser => headless browser (to not open a browser window)
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
-    # Navigate to the webpage using Chrome
+    # Navigate to the webpage using Chrome after an explicit delay to make sure that the content of the page was fully loaded
     driver = webdriver.Chrome(options=options)
+    driver.set_page_load_timeout(15)
     driver.get(url)
     # Get page source
     page_source = driver.page_source
@@ -56,10 +57,13 @@ def get_desired_content(url: str) -> json:
         object["link"] = url + soup.find("div").find("a").get("href")
 
         # Get object to scrape the post page
-        soup_additional = get_data(object["link"])
+        soup = get_data(object["link"])
 
         # Go to long description
-        object["long description"] = soup_additional.find("div").find("div").find("div").find("div").find_all("div", recursive=False)[1].find("div").find_all("div", recursive=False)[2].find_all("div", recursive=False)[1].text
+        object["long description"] = soup.find("div").find("div").find("div").find("div").find_all("div", recursive=False)[1].find("div").find_all("div", recursive=False)[2].find_all("div", recursive=False)[1].text
+        
+        # Analyze and determine overall sentiment
+        object["sentiment"] = analyze(object["long description"])
         
         content.append(object)
 

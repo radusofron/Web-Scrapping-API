@@ -1,5 +1,6 @@
-def positive_words():
+def get_positive_words():
     words = [
+    "positive",
     "good",
     "great",
     "excellent",
@@ -24,8 +25,9 @@ def positive_words():
     return words
 
 
-def negative_words():
+def get_negative_words():
     words = [
+    "negative",
     "bad",
     "poor",
     "terrible",
@@ -38,6 +40,7 @@ def negative_words():
     "pain",
     "disaster",
     "depressed",
+    "overwhelming",
     "tragic",
     "grief",
     "regret",
@@ -50,8 +53,27 @@ def negative_words():
     return words
 
 
-def analyze():
+def analyze(text: str):
     # Get positive and negative words
-    positive_words = positive_words()
-    negative_words = negative_words()
-    pass
+    positive_words = get_positive_words()
+    negative_words = get_negative_words()
+
+    # Split text into words
+    words = text.split(" ")
+    # Analyze text words
+    polarity = 0
+    for word in words:
+        if word in positive_words:
+            print(word)
+            polarity += 1
+        elif word in negative_words:
+            print(word)
+            polarity -= 1
+
+    print(polarity)
+
+    if polarity >= 1:
+        return "positive"
+    if polarity <= -1:
+        return "negative"
+    return "neutral"
