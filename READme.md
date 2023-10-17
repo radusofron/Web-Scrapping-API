@@ -4,7 +4,7 @@
 
 The API is designed to scrape the content of the following website: [https://wsa-test.vercel.app](https://wsa-test.vercel.app).
 
-## API endpoint:
+## API Endpoint:
 
 - **Endpoint:** http://127.0.0.1:5000.
 
@@ -23,7 +23,7 @@ Before running the Web Scraper API, make sure you have the following prerequisit
 
 To run the Web Scraper API, run the following command: `python -u main.py`.
 
-## API folder structure
+## API Folder structure
 
 - `node_module`, `package-lock.json`, `package.json`, `tailwind.config.js` are Tailwind CSS related files.
 - **src** directory contains the Python files.
