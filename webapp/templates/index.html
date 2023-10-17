@@ -10,7 +10,13 @@
     <title> WSA Scraper </title>
 </head>
 
-<body class="flex flex-col items-center px-8 py-8">
+<body class="relative flex flex-col items-center px-8 py-8">
+    <div id="loading-background" style="display: none;"
+        class="fixed top-0 left-0 w-full h-screen bg-neutral-700 bg-opacity-50 flex items-center justify-center gap-16">
+        <div class="h-6 w-6 rounded-full bg-blue-700 animate-bounce"></div>
+        <div class="h-6 w-6 rounded-full bg-violet-700 animate-bounce"></div>
+        <div class="h-6 w-6 rounded-full bg-pink-700 animate-bounce"></div>
+    </div>
     <h1 class="text-4xl">Web Scraper</h1>
     <form action="/" method="post" class="w-full flex flex-col items-center">
         <input name="url" type="text" placeholder="Insert URL" autocomplete="off" value="https://wsa-test.vercel.app"

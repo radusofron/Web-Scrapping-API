@@ -20,7 +20,6 @@ def validate_URL(url: str):
 def scrape():
     # POST method
     if request.method == 'POST':
-        print("Comes here?")
         # Extract URL inserted
         url = request.form['url']
 

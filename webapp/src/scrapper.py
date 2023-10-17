@@ -3,6 +3,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import json
 from sentiment_analyzer import analyze
+from words_counter import count_words
 
 
 def get_data(url: str) -> BeautifulSoup:
@@ -64,6 +65,9 @@ def get_desired_content(url: str) -> json:
         
         # Analyze and determine overall sentiment
         object["sentiment"] = analyze(object["long description"])
+
+        # Count the number of words
+        object["words"] = count_words(object["long description"])
         
         content.append(object)
 
